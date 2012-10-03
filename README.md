@@ -8,3 +8,4 @@ Simple tinyMCE configuration manager
 ` gem 'tinymce-rails-config-manager' `
 
 This project rocks and uses MIT-LICENSE.
+
