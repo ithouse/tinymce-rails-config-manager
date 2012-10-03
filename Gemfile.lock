@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tinymce-rails-config-manager (0.0.1)
+    tinymce-rails-config-manager (0.0.2)
       jquery-rails (>= 2.1.3)
       rails (~> 3.2.8)
       tinymce-rails (>= 3.5.6)

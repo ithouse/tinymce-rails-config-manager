@@ -2,6 +2,7 @@
 *.sassc
 .sass-cache
 capybara-*.html
+pkg/
 .rspec
 /.bundle
 /vendor/bundle
