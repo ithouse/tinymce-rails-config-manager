@@ -54,7 +54,7 @@ Simple tinyMCE configuration manager
   This will add callback for **setup**
 
   ```javascript
-  TinyMCEConfigManager.get().config.addFunction("setup", function(editor){ //do something here})
+  TinyMCEConfigManager.get().config.addFunction("setup", function(editor){ /*do something here*/})
   ```
 
 
