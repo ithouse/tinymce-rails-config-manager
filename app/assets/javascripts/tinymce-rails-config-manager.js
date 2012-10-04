@@ -1,1 +1,1 @@
-//= require_dir tinymce-rails-config-manager
+//= require_directory ./tinymce-rails-config-manager
