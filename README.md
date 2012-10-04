@@ -79,8 +79,8 @@ TinyMCEConfigManager.get().load()
 
 ## Roadmap
 
-* Make it possible to change places for existing values
-* create tests
+* Make it possible to change order of existing values
+* add tests
 
 This project rocks and uses MIT-LICENSE.
 
