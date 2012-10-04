@@ -68,6 +68,19 @@ TinyMCEConfigManager.get().configFor("#my_special_textarea")
 
 and then use all property modifiers as mentioned above. Default settings will be loaded for all other textareas.
 
+### How to load
+
+Simply call `load()`. Also it is possible to pass some specific configuration there, but that will overwrite existing and
+that is not recommended.
+
+```javascript
+TinyMCEConfigManager.get().load()
+```
+
+## Roadmap
+
+* Make it possible to change places for existing values
+* create tests
 
 This project rocks and uses MIT-LICENSE.
 
