@@ -1,0 +1,1 @@
+//= require_dir tinymce-rails-config-manager

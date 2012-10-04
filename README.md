@@ -7,5 +7,9 @@ Simple tinyMCE configuration manager
 
 ` gem 'tinymce-rails-config-manager' `
 
+2. Include asset in your JS manifest file
+
+` //= require tinymce-rails-config-manager `
+
 This project rocks and uses MIT-LICENSE.
 
