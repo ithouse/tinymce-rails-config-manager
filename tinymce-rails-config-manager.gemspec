@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary     = "Simple tinyMCE configuration manager."
   s.description = "Simple tinyMCE configuration manager that makes it easier to manage different configurations without changing templates"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "railties", "~> 3.2.8"
 end

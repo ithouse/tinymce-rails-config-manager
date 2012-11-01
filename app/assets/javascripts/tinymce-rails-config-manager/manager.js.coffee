@@ -33,9 +33,13 @@ class TinyMCEConfigManager
 
   init: ->
     @defaultConfig = @_createNewConfiguration()
+    @defaultConfig.setAsDefault()
     @config = @defaultConfig
     @_configs = {}
 
+  #TODO any configuration added to specific selectors should go in queue and only when load is called
+  # then those commands should be applied to real settings. Then always any other selector will use latest
+  # default config settings, and in right order will apply their settings to it
   configFor: (selector) ->
     unless @_configs[selector]
       @_configs[selector] = @_createNewConfiguration(@config.settings)
@@ -68,21 +72,22 @@ class TinyMCEConfigManager
   _initializeDefaultTinyMCE: (extendedSettings) ->
     newSettings = $.extend(true, $.extend(true, {}, @config.settings), extendedSettings)
     $selector = $(@textareaSelector())
-    for selector, config in @_configs
+    for selector, config of @_configs
       $selector = $selector.not(selector)
     $selector.tinymce(newSettings)
 
   # TinyMCEConfigManagerConfiguration allow to change values of tinyMCE configuration.
-  class TinyMCEConfigManagerConfiguration
+  @TinyMCEConfigManagerConfiguration = class TinyMCEConfigManagerConfiguration
 
     constructor: (settings) ->
       @settings = settings
       @callbacks = {}
+      @default = false
 
     add: (keyName, newValue) ->
       listManager = new TinyMCEListSettingManager(this)
       listManager.add(keyName, newValue)
-
+    
     addAfter: (keyName, newValue, oldValue) ->
       listManager = new TinyMCEListSettingManager(this)
       listManager.addAfter(keyName, newValue, oldValue)
@@ -105,6 +110,9 @@ class TinyMCEConfigManager
 
     setValue: (keyName, newValue) ->
       @settings[keyName] = newValue
+
+    setAsDefault: ->
+      @default = true
 
 
   class TinyMCESettingManager
