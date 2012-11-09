@@ -16,6 +16,7 @@ class TinyMCEConfigManager
     skin: "cirkuit",
     mode: "textareas",
     plugins: "table,fullscreen,lists,paste",
+    relative_urls : false,  
     theme_advanced_buttons1 : "bold,italic,underline,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,|,formatselect,|,image,removeformat,code,fullscreen",
     theme_advanced_buttons2 : "tablecontrols,|,paste,pastetext,pasteword,|,anchor,link,unlink",
     theme_advanced_buttons3 : "",
