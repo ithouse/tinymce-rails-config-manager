@@ -16,14 +16,14 @@ class TinyMCEConfigManager
     skin: "cirkuit",
     mode: "textareas",
     plugins: "table,fullscreen,lists,paste",
-    relative_urls : false,  
+    relative_urls : false,
     theme_advanced_buttons1 : "bold,italic,underline,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,|,formatselect,|,image,removeformat,code,fullscreen",
     theme_advanced_buttons2 : "tablecontrols,|,paste,pastetext,pasteword,|,anchor,link,unlink",
     theme_advanced_buttons3 : "",
     theme_advanced_toolbar_location: "top",
     theme_advanced_toolbar_align: "left",
   }
-    
+
   @_instance: null
 
   @get: ->
@@ -88,7 +88,7 @@ class TinyMCEConfigManager
     add: (keyName, newValue) ->
       listManager = new TinyMCEListSettingManager(this)
       listManager.add(keyName, newValue)
-    
+
     addAfter: (keyName, newValue, oldValue) ->
       listManager = new TinyMCEListSettingManager(this)
       listManager.addAfter(keyName, newValue, oldValue)
@@ -96,7 +96,7 @@ class TinyMCEConfigManager
     addBefore: (keyName, newValue, oldValue) ->
       listManager = new TinyMCEListSettingManager(this)
       listManager.addBefore(keyName, newValue, oldValue)
-    
+
     set: (keyName, newValue) ->
       valueManager = new TinyMCEValueSettingManager(this)
       valueManager.set(keyName, newValue)
@@ -131,7 +131,7 @@ class TinyMCEConfigManager
     COMPLEX_OPTIONS = {
       buttons: ['theme_advanced_buttons1', 'theme_advanced_buttons2', 'theme_advanced_buttons3']
     }
-    
+
     add:(keyName, newValue) ->
       for listKeyName, list of @_valuesList(keyName)
         if list

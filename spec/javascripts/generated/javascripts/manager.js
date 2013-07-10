@@ -15,6 +15,7 @@
       skin: "cirkuit",
       mode: "textareas",
       plugins: "table,fullscreen,lists,paste",
+      relative_urls: false,
       theme_advanced_buttons1: "bold,italic,underline,|,bullist,numlist,|,justifyleft,justifycenter,justifyright,|,formatselect,|,image,removeformat,code,fullscreen",
       theme_advanced_buttons2: "tablecontrols,|,paste,pastetext,pasteword,|,anchor,link,unlink",
       theme_advanced_buttons3: "",
@@ -34,6 +35,7 @@
 
     TinyMCEConfigManager.prototype.init = function() {
       this.defaultConfig = this._createNewConfiguration();
+      this.defaultConfig.setAsDefault();
       this.config = this.defaultConfig;
       return this._configs = {};
     };
@@ -83,12 +85,12 @@
     };
 
     TinyMCEConfigManager.prototype._initializeDefaultTinyMCE = function(extendedSettings) {
-      var $selector, config, newSettings, selector, _i, _len, _ref;
+      var $selector, config, newSettings, selector, _ref;
       newSettings = $.extend(true, $.extend(true, {}, this.config.settings), extendedSettings);
       $selector = $(this.textareaSelector());
       _ref = this._configs;
-      for (config = _i = 0, _len = _ref.length; _i < _len; config = ++_i) {
-        selector = _ref[config];
+      for (selector in _ref) {
+        config = _ref[selector];
         $selector = $selector.not(selector);
       }
       return $selector.tinymce(newSettings);
@@ -99,6 +101,7 @@
       function TinyMCEConfigManagerConfiguration(settings) {
         this.settings = settings;
         this.callbacks = {};
+        this["default"] = false;
       }
 
       TinyMCEConfigManagerConfiguration.prototype.add = function(keyName, newValue) {
@@ -144,6 +147,10 @@
 
       TinyMCEConfigManagerConfiguration.prototype.setValue = function(keyName, newValue) {
         return this.settings[keyName] = newValue;
+      };
+
+      TinyMCEConfigManagerConfiguration.prototype.setAsDefault = function() {
+        return this["default"] = true;
       };
 
       return TinyMCEConfigManagerConfiguration;
